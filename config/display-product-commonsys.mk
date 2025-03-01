@@ -22,8 +22,10 @@ SOONG_CONFIG_qtidisplaycommonsys_displayextension := false
 SOONG_CONFIG_qtidisplaycommonsys_composer3ext := false
 
 ifeq ($(call is-vendor-board-platform,QCOM),true)
+ifneq ($(TARGET_COMPOSER_HAS_NO_EXTENSION),true)
     SOONG_CONFIG_qtidisplaycommonsys_displayextension := true
     SOONG_CONFIG_qtidisplaycommonsys_composer3ext := true
+endif
 endif
 
 # Enable conditional compilation for HWC's version in the system image.
